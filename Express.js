@@ -89,7 +89,7 @@ router.put('/todos/:id', checkTodoId, checkTodoData, (req, res) => {
     id: todoId,
     title,
     description,
-    completed: false
+    completionStatus: false
   };
   todos = todos.map(todo => (todo.id === todoId ? updatedTodo : todo));
   res.status(200).json(updatedTodo);
