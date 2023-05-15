@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Abdallah Jabr's TODO</title>
+</head>
+<body>
+  <h2>Todos:</h2>
+  <ul id="todos"></ul>
+
+  <script>
+
+    fetch('/todos')
+      .then(response => response.json())
+      .then(todos => {
+        const todosList = document.getElementById('todos');
+        todos.forEach(todo => {
+          const item = document.createElement('li');
+          item.textContent = `The title is: ${todo.title}, and the description is: ${todo.description}`;
+          todosList.appendChild(item);
+        });
+      })
+      .catch(error => console.log(error));
+
+  </script>
+</body>
+</html>
